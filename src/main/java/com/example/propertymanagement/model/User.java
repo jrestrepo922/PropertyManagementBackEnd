@@ -23,6 +23,8 @@ public class User {
 
     private String password;
 
+    private String email;
+
     // this will cause a deletion of user to delete everything else associated with it
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Property> properties = new ArrayList<Property>();
@@ -33,9 +35,11 @@ public class User {
         property.setUser(this);
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
+        this.email = email;
+
     }
 
     @Override

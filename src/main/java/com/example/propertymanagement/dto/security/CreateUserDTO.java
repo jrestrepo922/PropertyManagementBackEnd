@@ -1,4 +1,4 @@
-package com.example.propertymanagement.dto.userdto;
+package com.example.propertymanagement.dto.security;
 import lombok.Data;
 
 

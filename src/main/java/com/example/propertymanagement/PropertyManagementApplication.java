@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class PropertyManagementApplication {
@@ -19,6 +22,16 @@ public class PropertyManagementApplication {
 		SpringApplication.run(PropertyManagementApplication.class, args);
 	}
 
+//	@Bean
+//	//solves the issue with Cors issues
+//	public WebMvcConfigurer corsConfigurer(){
+//		return new WebMvcConfigurer() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry){
+//				registry.addMapping("/*").allowedHeaders("*").allowedOriginPatterns("*").allowedMethods("*").allowCredentials(true);
+//			}
+//		};
+//	}
 
 	@Component
 	public class StartUpRunner implements CommandLineRunner {
@@ -38,9 +51,9 @@ public class PropertyManagementApplication {
 		@Override
 		public void run(String... args) throws Exception {
 			// create some users
-			User user1 = new User("Tinto", "1234");
-			User user2 = new User("Chente", "7890");
-			User user3 = new User("Checo", "nonsense");
+			User user1 = new User("tinto", "1234","tinto@gmail.com");
+			User user2 = new User("chente", "7890", "chente@gmail.com");
+			User user3 = new User("checo", "nonsense", "checo@gmail.com");
 
 
 			// create properties

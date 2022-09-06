@@ -1,4 +1,4 @@
-package com.example.propertymanagement.dto.userdto;
+package com.example.propertymanagement.dto.security;
 
 import com.example.propertymanagement.dto.propertydto.GetPropertiesDTO;
 import com.example.propertymanagement.model.Property;

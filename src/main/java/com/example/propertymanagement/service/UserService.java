@@ -1,7 +1,7 @@
 package com.example.propertymanagement.service;
 
-import com.example.propertymanagement.dto.userdto.CreateUserDTO;
-import com.example.propertymanagement.dto.userdto.GetUserDTO;
+import com.example.propertymanagement.dto.security.CreateUserDTO;
+import com.example.propertymanagement.dto.security.GetUserDTO;
 import com.example.propertymanagement.model.User;
 import com.example.propertymanagement.repository.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -40,12 +38,13 @@ public class UserService {
         return getUserDTO;
     }
 
-    public  GetUserDTO validateUser(String username, String password){
-        User user = this.userRepository.findByUsernameAndPassword(username,password)
+    public  GetUserDTO getUserByUsername(String username){
+        User user = this.userRepository.findByUsername(username)
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
         GetUserDTO getUserDTO = mapper.map(user, GetUserDTO.class);
         return getUserDTO;
     }
+
 
 
 
